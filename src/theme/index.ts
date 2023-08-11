@@ -1,10 +1,11 @@
+import { colors } from "./colors";
+
 export default {
-  COLORS: {
-    GRAY: '#333638',
-    WHITE: '#FFFFFF'
-  },
+  COLORS: colors,
 
   FONTS: {
-    REGULAR: 'Poppins_400Regular'
+    REGULAR: 'Roboto_400Regular',
+    BOLD: 'Roboto_400Bold',
+    LIGHT: 'Roboto_300Light'
   }
 }
