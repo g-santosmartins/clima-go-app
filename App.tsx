@@ -2,7 +2,7 @@ import 'react-native-gesture-handler'
 import { StatusBar } from 'react-native'
 import { ThemeProvider } from 'styled-components/native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins' 
+import { useFonts, Roboto_400Regular, Roboto_700Bold, Roboto_300Light} from '@expo-google-fonts/roboto' 
 
 import theme from './src/theme'
 
@@ -12,7 +12,8 @@ import { Loading } from '@components/Loading'
 
 export default function App() {
 
-  const [fontsLoaded] = useFonts({ Poppins_400Regular })
+  const LOADING_MESSAGE = "Por favor aguarde, estamos preparando tudo"
+  const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold, Roboto_300Light})
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -23,7 +24,7 @@ export default function App() {
           backgroundColor="transparent"
         />
 
-        {fontsLoaded ? <Routes/> : <Loading/>}
+        {fontsLoaded ? <Routes/> : <Loading loadingMessage={LOADING_MESSAGE}/>}
       </ThemeProvider>
     </GestureHandlerRootView>
   );
