@@ -1,9 +1,16 @@
-import { Container, LoadIndicator } from './styles'
+import { Container, LoadIndicator, LoadingTextMessage } from './styles'
 
-export function Loading(){
+interface LoadingProps {
+  loadingMessage?: string,
+  color?: string,
+  size?: number | "large" | "small",
+}
+
+export function Loading({loadingMessage, size} : LoadingProps){
   return (
     <Container>
-      <LoadIndicator />
+      <LoadIndicator size={size || "small"} />
+      <LoadingTextMessage>{loadingMessage || ""}</LoadingTextMessage>
     </Container>
   )
 }
