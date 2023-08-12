@@ -5,7 +5,7 @@ import { weatherDescriptions } from "@utils/weatherStausDescription"
 
 export const WeatherContainer = ({weather}: any) => {
   const description = weather?.weather[0]?.description || ""
-  // console.log("DESCRICAO", description)
+  // console.log("DESCRICAO", weather)
   return <>
     <Title
       color={constants.COLORS.WHITE}
@@ -16,9 +16,9 @@ export const WeatherContainer = ({weather}: any) => {
     </Title>
     <Title color={constants.COLORS.WHITE} marginTop="10px" fontSize="25px"fontStyle="REGULAR" >{weatherDescriptions[description] || "..."}</Title>
     <Title color={constants.COLORS.WHITE} marginTop="10px" fontSize="25px"fontStyle="REGULAR" >
-      <Title color={constants.COLORS.MAIN_YELLOW} marginTop="10px"  fontSize="25px">Chuva Hoje: </Title>30%
+      <Title color={constants.COLORS.MAIN_YELLOW} marginTop="10px"  fontSize="25px">Chance de chover: </Title>{weather?.rain_chance}%
     </Title>
-    <Title color={constants.COLORS.WHITE} marginTop="10px"  fontSize="20px"fontStyle="REGULAR" >{weather.name}, {weather?.sys?.country}</Title>
+    <Title color={constants.COLORS.WHITE} marginTop="10px"  fontSize="20px"fontStyle="REGULAR" >{weather?.name || "..."}, {weather?.sys?.country || "..."}</Title>
 
   </>
 }

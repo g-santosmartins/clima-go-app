@@ -2,6 +2,7 @@ import axios, { AxiosResponse, AxiosError } from 'axios';
 import handleGetEnvironmentVariables from '../../env';
 
 const BASE_URL = handleGetEnvironmentVariables().WEATHER_API_URL;
+const BASE_URL_SECONDARY = handleGetEnvironmentVariables().WEATHER_SECOND_API_URL;
 const DEBUG = false;
 // const API_KEY = getEnvVariables().WHEATHER_APIKEY_ANDROID;
 
@@ -12,6 +13,27 @@ const api = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
+
+const apiSecondary = axios.create({
+  baseURL: BASE_URL_SECONDARY,
+  timeout: 15000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+export const apiSecondaryGet = async <T>(url: string): Promise<T> => {
+  try {
+    console.log(url)
+    const response: AxiosResponse<T> = await apiSecondary.get(url);
+    // console.log("REQUEST RESULT", response)
+    return response.data;
+  } catch (error) {
+    handleApiError(error as AxiosError);
+    throw error;
+  }
+}
 
 // Middleware to get request in details
 if(DEBUG) {

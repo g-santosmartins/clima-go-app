@@ -5,7 +5,7 @@ import { Alert } from "react-native";
 
 const DEBUG = false;
 
-const handleGetWeatherData = async (city: string, units: string) => {
+const handleGetWeatherData = async (lat: string, lon: string, units: string) => {
 
   if(DEBUG) await handleRemoveStorageContent("weather")
   let existingWeatherData = await handleReadStorageContent("weather")
@@ -27,13 +27,14 @@ const handleGetWeatherData = async (city: string, units: string) => {
     } else {
       // > 1
       if(DEBUG) Alert.alert("Precisa pegar novamente, buscando novas informações")
-      existingWeatherData = handleGetExternalWeatherData(city, units)
+      existingWeatherData = handleGetExternalWeatherData(lat, lon, units)
     }
 
     return existingWeatherData
 
   } else {
-    const storageObject = await handleGetExternalWeatherData(city, units)
+    // Alert.alert("nao tenho")
+    const storageObject = await handleGetExternalWeatherData(lat, lon, units)
     await handleSaveStorageContent(storageObject)
 
     if(DEBUG) Alert.alert("Consegui salvar")
@@ -41,9 +42,9 @@ const handleGetWeatherData = async (city: string, units: string) => {
   }
 }
 
-const handleGetExternalWeatherData = async (city: string, units: string) => {
+const handleGetExternalWeatherData = async (lat: string, lon: string, units: string) => {
   const API_KEY = handleGetEnvironmentVariables().WHEATHER_APIKEY_ANDROID
-  const requestURL = `/weather?q=${city}&units=${units}&appid=${API_KEY}`
+  const requestURL = `/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${API_KEY}`
 
   const response = await apiGet(requestURL)
   
