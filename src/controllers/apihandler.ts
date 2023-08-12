@@ -32,7 +32,7 @@ export const apiGet = async <T>(url: string): Promise<T> => {
   try {
     console.log(url)
     const response: AxiosResponse<T> = await api.get(url);
-    console.log("REQUEST RESULT", response)
+    // console.log("REQUEST RESULT", response)
     return response.data;
   } catch (error) {
     handleApiError(error as AxiosError);

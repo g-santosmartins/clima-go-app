@@ -1,4 +1,4 @@
-import { scheduleNotification } from "@utils/NotificationManager"
+import { scheduleNotification } from "@utils/notificationManager"
 
 import { Title } from "@components/common/Title/styles"
 import { NotificationButtonContainer } from "./styles"
@@ -8,11 +8,6 @@ import { constants } from "../../theme/constants"
 import { Alert } from "react-native"
 
 export const NotificationButton = () => {
-
-  // const handleScheduleNotification = () => {
-  //   Alert.alert("Notificação agendada", "A notificação solicitada foi agendada com sucesso")
-  // }
-
   const handleNotification = async () => {
     try {
       const title = 'Previsão do tempo de hoje!!';

@@ -1,23 +1,25 @@
 import { Title } from "@components/common/Title/styles"
-import { PropsWithChildren } from "react"
 import { constants } from "../../theme/constants"
+import { weatherDescriptions } from "@utils/weatherStausDescription"
 
-export const WeatherContainer = ({ children }: PropsWithChildren) => {
+
+export const WeatherContainer = ({weather}: any) => {
+  const description = weather?.weather[0]?.description || ""
+  // console.log("DESCRICAO", description)
   return <>
     <Title
       color={constants.COLORS.WHITE}
       fontSize="60px"
       fontStyle="REGULAR"
     >
-      32<Title color={constants.COLORS.WHITE} fontSize="40px"fontStyle="REGULAR" > °C</Title>
+      {Math.round(weather?.main?.temp)}<Title color={constants.COLORS.WHITE} fontSize="40px"fontStyle="REGULAR" > °C</Title>
     </Title>
-    <Title color={constants.COLORS.WHITE} marginTop="10px" fontSize="25px"fontStyle="REGULAR" >Ensolarado, limpo</Title>
+    <Title color={constants.COLORS.WHITE} marginTop="10px" fontSize="25px"fontStyle="REGULAR" >{weatherDescriptions[description] || "..."}</Title>
     <Title color={constants.COLORS.WHITE} marginTop="10px" fontSize="25px"fontStyle="REGULAR" >
       <Title color={constants.COLORS.MAIN_YELLOW} marginTop="10px"  fontSize="25px">Chuva Hoje: </Title>30%
     </Title>
-    <Title color={constants.COLORS.WHITE} marginTop="10px"  fontSize="20px"fontStyle="REGULAR" >Marília, São Paulo, BR</Title>
+    <Title color={constants.COLORS.WHITE} marginTop="10px"  fontSize="20px"fontStyle="REGULAR" >{weather.name}, {weather?.sys?.country}</Title>
 
-    {children}
   </>
 }
 
