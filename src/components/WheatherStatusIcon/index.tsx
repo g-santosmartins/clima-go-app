@@ -1,8 +1,9 @@
 import { Image, ImageSourcePropType } from "react-native"
 import { WeatherStatusIconContainer } from "./styles"
+import { ReactPropTypes } from "react"
 
 interface WeatherStatusIconProps {
-  imageUrl: keyof IconButtonProps
+  imageAlias: keyof IconButtonProps
 }
 
 interface IconButtonProps {
@@ -14,7 +15,7 @@ interface IconButtonProps {
   snowy: ImageSourcePropType
 }
 
-export const WeatherStatusIcon = ({imageUrl} : WeatherStatusIconProps, ...rest : any[]) => {
+export const WeatherStatusIcon = ({imageAlias} : WeatherStatusIconProps, ...rest : ReactPropTypes[]) => {
   const iconsImports : IconButtonProps = {
     sunny: require("../../assets/Main/sunny.png"),
     rainy: require("../../assets/Main/rainy.png"),
@@ -25,7 +26,7 @@ export const WeatherStatusIcon = ({imageUrl} : WeatherStatusIconProps, ...rest :
   }
   return <>
     <WeatherStatusIconContainer>
-      <Image source={iconsImports[imageUrl]}/>
+      <Image source={iconsImports[imageAlias]}/>
     </WeatherStatusIconContainer>
   </>
 }
