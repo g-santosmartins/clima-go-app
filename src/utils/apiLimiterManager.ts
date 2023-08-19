@@ -7,8 +7,9 @@ const DEBUG = false;
 
 const handleGetWeatherData = async (lat: string, lon: string, units: string) => {
 
-  if(DEBUG) await handleRemoveStorageContent("weather")
+  //  await handleRemoveStorageContent("weather")
   let existingWeatherData = await handleReadStorageContent("weather")
+  // console.log("RESULTADO DA LEITURA DO CACHE", existingWeatherData)
   
   if (existingWeatherData !== null && existingWeatherData !== undefined) {
     const weatherData = existingWeatherData.created_at
@@ -19,9 +20,8 @@ const handleGetWeatherData = async (lat: string, lon: string, units: string) => 
     const timeDifferenceInMilliseconds : number = date2.getTime() - date1.getTime();
   
     const timeDifferenceInHours: number = timeDifferenceInMilliseconds / (1000 * 60 * 60);
-    if(DEBUG) Alert.alert("Já tem")
 
-    if(timeDifferenceInHours < 1 ) {
+    if(timeDifferenceInHours < 0.3) {
       if(DEBUG) Alert.alert("Não precisa pegar novamente")
 
     } else {
@@ -82,7 +82,6 @@ const handleRemoveStorageContent = async (key: string) => {
     // remove error
   }
 
-  console.log('Remotion Complete, Done.')
 }
 
 
