@@ -2,7 +2,6 @@ import { Title } from "@components/common/Title/styles"
 import { constants } from "../../theme/constants"
 import { weatherDescriptions } from "@utils/weatherStausDescription"
 
-
 export const WeatherContainer = ({weather}: any) => {
   const description = weather?.weather[0]?.description || ""
   // console.log("DESCRICAO", weather)
@@ -19,7 +18,6 @@ export const WeatherContainer = ({weather}: any) => {
       <Title color={constants.COLORS.MAIN_YELLOW} marginTop="10px"  fontSize="25px">Chance de chover: </Title>{weather?.rain_chance}%
     </Title>
     <Title color={constants.COLORS.WHITE} marginTop="10px"  fontSize="20px"fontStyle="REGULAR" >{weather?.name || "..."}, {weather?.sys?.country || "..."}</Title>
-
   </>
 }
 

@@ -1,4 +1,5 @@
-import { Container, LoadIndicator, LoadingTextMessage } from './styles'
+import { getPeriodOfDayColorGradient } from '@utils/index'
+import { Container, LoadIndicator, LoadingIcon, LoadingTextMessage } from './styles'
 
 interface LoadingProps {
   loadingMessage?: string,
@@ -6,11 +7,14 @@ interface LoadingProps {
   size?: number | "large" | "small",
 }
 
+const colors = getPeriodOfDayColorGradient()
+
 export function Loading({loadingMessage, size} : LoadingProps){
   return (
     <Container>
-      <LoadIndicator size={size || "small"} />
+      <LoadingIcon  resizeMode="contain" source={require("../../assets/Main/cloudy.png")} />
       <LoadingTextMessage>{loadingMessage || ""}</LoadingTextMessage>
+      <LoadIndicator size={size || "small"} />
     </Container>
   )
 }
