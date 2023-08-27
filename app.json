@@ -4,8 +4,12 @@
     "slug": "ClimaGO",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "dark",
+    "icon": "./assets/logo-name.png",
+    "userInterfaceStyle": "automatic",
+    "adaptiveIcon": true,
+    "notification":{
+      "icon":"./assets/logo-name.png"
+   },
     "splash": {
       "image": "./assets/SplashScreen@3x.png",
       "resizeMode": "cover",
@@ -19,12 +23,38 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logo-name.png",
         "backgroundColor": "#1374A7"
-      }
+      },
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.FOREGROUND_SERVICE"
+      ],
+      "package": "com.gsantosmartins.ClimaGO"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/logo-name.png"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/logo.png",
+          "color": "#ffffff"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Permita que o ClimaGO use os dados de localização"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "6f391534-845d-42b3-9cfc-410158942eb1"
+      }
     }
   }
 }
