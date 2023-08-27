@@ -1,14 +1,13 @@
 import axios, { AxiosResponse, AxiosError } from 'axios';
-import handleGetEnvironmentVariables from '../../env';
 
-const BASE_URL = handleGetEnvironmentVariables().WEATHER_API_URL;
-const BASE_URL_SECONDARY = handleGetEnvironmentVariables().WEATHER_SECOND_API_URL;
-const DEBUG = true;
+const BASE_URL = "https://api.openweathermap.org/data/2.5"
+const BASE_URL_SECONDARY = "https://api.open-meteo.com/v1";
+const DEBUG = false;
 // const API_KEY = getEnvVariables().WHEATHER_APIKEY_ANDROID;
 
 const api = axios.create({
   baseURL: BASE_URL,
-  timeout: 15000,
+  timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -16,7 +15,7 @@ const api = axios.create({
 
 const apiSecondary = axios.create({
   baseURL: BASE_URL_SECONDARY,
-  timeout: 15000,
+  timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
   },
