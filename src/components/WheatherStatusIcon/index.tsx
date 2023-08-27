@@ -19,7 +19,6 @@ const handleDecideWetherIcon = (code: any) => {
   const indexOfFirstElement = 0
   const clearWeatherCode = "800"
   const splitedCode = code.toString().split("")
-  // console.log(splitedCode)
 
   if(code !== clearWeatherCode) {
     switch (splitedCode[indexOfFirstElement]) {
