@@ -12,7 +12,7 @@ const colors = getPeriodOfDayColorGradient()
 export function Loading({loadingMessage, size} : LoadingProps){
   return (
     <Container>
-      <LoadingIcon  resizeMode="contain" source={require("../../assets/Main/cloudy.png")} />
+      <LoadingIcon  resizeMode="contain" source={require("../../assets/logo.png")} />
       <LoadingTextMessage>{loadingMessage || ""}</LoadingTextMessage>
       <LoadIndicator size={size || "small"} />
     </Container>
