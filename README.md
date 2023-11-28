@@ -1,55 +1,42 @@
-# React Native Base Project
+![App Screenshot](.github/cover.png)
 
-This is a base project for React Native that includes various technologies and packages to help you kickstart your development process. It is built using the Expo managed workflow with a blank TypeScript template.
+# Clima Go
+Um aplicativo para monitorar a previsão do tempo e temperatura integrado com a API do OpenWeather
 
-## Technologies Installed
+## Como Executar o App
 
-1. **Expo managed workflow**: The project is set up with the Expo managed workflow, which provides a simplified and efficient development environment.
+Para iniciar o aplicativo, utilize o seguinte comando:
 
-2. **Expo Google Fonts**: Easily integrate custom fonts from the Google Fonts library into your application.
+```bash
+yarn start
+```
 
-3. **Styled Components**: Use the popular Styled Components library to style your React Native components. The project also includes a theme file where you can define your global styling variables.
+Se desejar executá-lo em um dispositivo móvel, é necessário ter o Expo instalado. Veja como fazer isso para Android ou iOS:
+## Android
 
-4. **Path Mapping**: Simplify your imports by setting up path mapping, allowing you to use absolute paths instead of relative paths.
+    Instale o Expo Go na Play Store.
+    Escaneie o código QR gerado ao iniciar o aplicativo com o Expo Go.
 
-5. **React Navigation**: Implement navigation in your React Native app using React Navigation. The project includes predefined types for routes to ensure type safety and enhance development productivity.
+## iOS
 
-6. **Reanimated**: Utilize the power of Reanimated, a declarative library for building performant and complex animations in React Native.
+    Instale o Expo Go na App Store.
+    Escaneie o código QR gerado ao iniciar o aplicativo com o Expo Go.
 
-7. **Skia**: Skia is a 2D graphics library that provides powerful rendering capabilities. It is integrated into this project to enhance the visual experience of your app.
+## Se preferir utilizar um emulador:
+Emulador
 
-8. **Gesture Handler**: Easily handle gestures and touch events with Gesture Handler, a library that allows for smooth and intuitive user interactions in your React Native application.
+    Certifique-se de ter um emulador configurado no seu ambiente de desenvolvimento.
+    Execute o comando yarn start no terminal.
+    No terminal, escolha a opção para executar o app no emulador desejado.
 
-9. **Expo Vector Icons**: Access a wide range of vector icons from various icon libraries using Expo Vector Icons. This package simplifies the process of adding icons to your app.
+## Stack
 
-## Getting Started
+    React Native
+    Typescript
+    Expo
+    Open WeatherAPI
 
-To get started with this base project, follow these steps:
+## Recursos
 
-1. Clone the repository: `git clone https://github.com/felipefreitasa/react-native-base-project.git`
-
-2. Install dependencies: `cd react-native-base-project` and `npm install` or `yarn install`
-
-3. Start the development server: `npx expo start`
-
-5. Make changes to the project to fit your specific requirements and start building your React Native app!
-
-## Folder Structure
-
-The project has the following folder structure:
-
-- **src/components**: Contains reusable components used throughout the application.
-
-- **src/routes**: Contains navigation-related files, including the main navigation stack and navigation helpers.
-
-- **src/screens**: Contains individual screen components of the application.
-
-- **src/themes**: Contains theme-related files, including the theme file where you can define global styles.
-
-- **src/types**: Contains type definitions used throughout the application.
-
-- **App.tsx**: The entry point of the application.
-
-## Contributing
-
-Contributions are welcome! If you have any suggestions or improvements for this base project, feel free to open an issue or submit a pull request.
+    Alertas de mudanças climáticas
+    Funcionalidades que mudam o tema do aplicativo conforme a hora do dia, clima e temperatura atual.
